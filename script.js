@@ -179,13 +179,6 @@ class People {
     }
 }
 
-function clog() {
-    // console.table(PEOPLE);
-    // console.table(PEOPLE_HEALTHY);
-    // console.table(PEOPLE_UNHEALTHY);
-    console.log(randomGL(1));
-}
-
 function setup() {
     // 如果用户离开窗口就停止动画，回到窗口时继续动画
     window.onblur = noLoop;
