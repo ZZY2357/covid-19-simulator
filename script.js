@@ -7,15 +7,15 @@
 /*
  * 红色代表感染者
  * 绿色代表未感染者
- *      正方形代表戴口罩的人
- *      圆形代表不戴口罩的人
+ * 蓝色代表被隔离人群
  */
 
 const PEOPLE_AMOUNT = 1000; // 人数
 const PROTECT = 0.06; // 被感染率
 const BEDS = 100; // 病床床位
-const PEOPLE_SPEED = 0.03; // 人群最大移动速度
-const INIT_UNHEALTHY = 1; // 初始感染者数量
+const PEOPLE_SPEED = 0.03; // 人群平均移动速度
+const INIT_UNHEALTHY = 120; // 初始感染者数量
+const HAPPY_HEALTHY_DAY = 1; // 康复期（秒）
 
 const WIDTH = 800;
 const HEIGHT = 600;
@@ -23,12 +23,13 @@ const BGCOLOR = 0x000;
 
 const POINT_SIZE = 3; // 小圈圈的大小
 const GREEN = '#00ff00';
-const YELLOW = '#00ffff';
+const BLUE = '#00ffff';
 const RED = '#ff0000';
 
 const PEOPLE = []; // 储存所有人
 const PEOPLE_HEALTHY = []; // 储存所有未感染者
 const PEOPLE_UNHEALTHY = []; // 储存所有感染者
+const PEOPLE_IS_BREAK = [] // 储存所有被隔离者
 
 /**
  * 半径碰撞检测
@@ -92,6 +93,10 @@ class People {
     // 给定一个基点，根据基点产生随机差值
     vx = randomGaussian(0, PEOPLE_SPEED);
     vy = randomGaussian(0, PEOPLE_SPEED);
+    
+    isBreak = false; // 是否被隔离
+    inBreakTime = null; // 入院日期（帧数）
+
     constructor(isHealthy, hasMask = false) {
         this.isHealthy = isHealthy;
         if (isHealthy) {
@@ -99,7 +104,7 @@ class People {
             if (this.hasMask) {
                 this.color = GREEN;
             } else {
-                this.color = YELLOW;
+                this.color = BLUE;
             }
         } else {
             this.hasMask = null;
@@ -109,14 +114,11 @@ class People {
 
     auto() {
         if (this.isHealthy) {
-            if (this.hasMask) {
-                this.color = GREEN;
-            } else {
-                this.color = YELLOW;
-            }
+            this.color = GREEN;
+        } else if (this.isBreak) {
+            this.color = BLUE;
         } else {
             this.color = RED;
-            this.hasMask = null;
         }
     }
 
@@ -133,12 +135,25 @@ class People {
         if (this.y < 0 || this.y > HEIGHT) {
             this.vy *= -1;
         }
-        this.x += this.vx;
-        this.y += this.vy;
+        if (!this.isBreak) {
+            this.x += this.vx;
+            this.y += this.vy;
+        }
+    }
+
+    doesBreakTimeOut() {
+        if (this.isBreak) {
+            if (frameCount > this.inBreakTime + frameRate() * HAPPY_HEALTHY_DAY) {
+                this.isHealthy = true;
+                this.isBreak = false;
+                this.inBreakTime = null;
+                PEOPLE_IS_BREAK.pop();
+            }
+        }
     }
 
     ifGetSick() {
-        if (this.isHealthy == false) {
+        if (this.isHealthy == false && !this.isBreak) {
             for (let i = 0; i < PEOPLE_HEALTHY.length; i++) {
                 if (
                     radiusCollider(
@@ -201,5 +216,14 @@ function draw() {
         PEOPLE[i].move();
         PEOPLE[i].auto();
         PEOPLE[i].ifGetSick();
+        PEOPLE[i].doesBreakTimeOut();
+    }
+
+    for (let i = 0; i < PEOPLE_UNHEALTHY.length; i++) {
+        if (PEOPLE_IS_BREAK.length < BEDS && !PEOPLE_UNHEALTHY[i].isBreak) {
+            PEOPLE_UNHEALTHY[i].isBreak = true;
+            PEOPLE_UNHEALTHY[i].inBreakTime = frameCount;
+            PEOPLE_IS_BREAK.push(PEOPLE_UNHEALTHY[i]);
+        }
     }
 }
