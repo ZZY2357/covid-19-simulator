@@ -138,7 +138,7 @@ class People {
         if (this.y < 0 || this.y > HEIGHT) {
             this.vy *= -1;
         }
-        if (!this.isBreak) {
+        if (this.isBreak === false) {
             this.x += this.vx;
             this.y += this.vy;
         }
