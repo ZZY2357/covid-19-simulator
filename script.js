@@ -12,7 +12,7 @@
 
 const PEOPLE_AMOUNT = 1000; // 人数
 const PROTECT = 0.06; // 被感染率
-const BEDS = 100; // 病床床位
+const BEDS = 900; // 病床床位
 const PEOPLE_SPEED = 0.03; // 人群平均移动速度
 const INIT_UNHEALTHY = 120; // 初始感染者数量
 const HAPPY_HEALTHY_DAY = 1; // 康复期（秒）
@@ -26,10 +26,10 @@ const GREEN = '#00ff00';
 const BLUE = '#00ffff';
 const RED = '#ff0000';
 
-const PEOPLE = []; // 储存所有人
-const PEOPLE_HEALTHY = []; // 储存所有未感染者
-const PEOPLE_UNHEALTHY = []; // 储存所有感染者
-const PEOPLE_IS_BREAK = [] // 储存所有被隔离者
+let PEOPLE = []; // 储存所有人
+let PEOPLE_HEALTHY = []; // 储存所有未感染者
+let PEOPLE_UNHEALTHY = []; // 储存所有感染者
+let PEOPLE_IS_BREAK = [] // 储存所有被隔离者
 
 /**
  * 半径碰撞检测
@@ -147,7 +147,8 @@ class People {
                 this.isHealthy = true;
                 this.isBreak = false;
                 this.inBreakTime = null;
-                PEOPLE_IS_BREAK.pop();
+                PEOPLE_HEALTHY.push(PEOPLE_IS_BREAK[0]);
+                PEOPLE_IS_BREAK.shift();
             }
         }
     }
