@@ -11,27 +11,23 @@
  *      圆形代表不戴口罩的人
  */
 
-const PEOPLE_AMOUNT = 100; // 人数
-const HAS_MASK = 0.8; // 戴口罩人数占总人数的百分比
-const NO_MASK = 0.2; // 不戴口罩人数占总人数的百分比
-const HAS_MASK_PROTECT = 0.4; // 带口罩下的被感染率
-const NO_MASK_PROTECT = 0.6; // 不带口罩下的被感染率
+const PEOPLE_AMOUNT = 1000; // 人数
+const PROTECT = 0.06; // 被感染率
 const BEDS = 100; // 病床床位
-const PEOPLE_SPEED = 0.3; // 人群最大移动速度
-const INIT_UNHEALTHY = 2; // 初始感染者数量
+const PEOPLE_SPEED = 0.03; // 人群最大移动速度
+const INIT_UNHEALTHY = 1; // 初始感染者数量
 
-const WIDTH = 600;
-const HEIGHT = 400;
+const WIDTH = 800;
+const HEIGHT = 600;
 const BGCOLOR = 0x000;
 
-const POINT_SIZE = 10; // 小圈圈的大小
+const POINT_SIZE = 3; // 小圈圈的大小
 const GREEN = '#00ff00';
 const YELLOW = '#00ffff';
 const RED = '#ff0000';
 
 const PEOPLE = []; // 储存所有人
 const PEOPLE_HEALTHY = []; // 储存所有未感染者
-const PEOPLE_HEALTHY_HAS_MASK = []; // 储存所有戴口罩的未感染者
 const PEOPLE_UNHEALTHY = []; // 储存所有感染者
 
 /**
@@ -66,6 +62,7 @@ function radiusCollider(x1, y1, x2, y2, r1, r2 = 0) {
 
 /**
  * 随机概率是否发生
+ * @param {float} 概率，百分数
  */
 function randomGL(gl) {
     // 随机从列表获取一个项
@@ -130,48 +127,38 @@ class People {
     }
 
     move() {
-        this.x += this.vx;
-        this.y += this.vy;
         if (this.x < 0 || this.x > WIDTH) {
             this.vx *= -2;
         }
         if (this.y < 0 || this.y > HEIGHT) {
             this.vy *= -1;
         }
+        this.x += this.vx;
+        this.y += this.vy;
     }
 
     ifGetSick() {
         if (this.isHealthy == false) {
-                for (let i = 0; i < PEOPLE_HEALTHY.length; i++) {
-                    if (
-                        radiusCollider(
-                            this.x,
-                            this.y,
-                            PEOPLE_HEALTHY[i].x,
-                            PEOPLE_HEALTHY[i].y,
-                            POINT_SIZE / 2,
-                            POINT_SIZE / 2
-                        )
-                    ) {
-                        console.log('z');
-
-                        if (PEOPLE_HEALTHY[i].hasMask === true) {
-                            if (randomGL(HAS_MASK_PROTECT)) {
-                                PEOPLE_HEALTHY[i].isHealthy = false;
-                                PEOPLE_UNHEALTHY.push(PEOPLE_HEALTHY[i]);
-                                PEOPLE_HEALTHY.splice(i, 1);
-                            }
-                        } else {
-                            if (randomGL(NO_MASK_PROTECT)) {
-                                PEOPLE_HEALTHY[i].isHealthy = false;
-                                PEOPLE_UNHEALTHY.push(PEOPLE_HEALTHY[i]);
-                                PEOPLE_HEALTHY.splice(i, 1);
-                            }
-                        }
-                        break;
+            for (let i = 0; i < PEOPLE_HEALTHY.length; i++) {
+                if (
+                    radiusCollider(
+                        this.x,
+                        this.y,
+                        PEOPLE_HEALTHY[i].x,
+                        PEOPLE_HEALTHY[i].y,
+                        POINT_SIZE / 2,
+                        POINT_SIZE / 2
+                    )
+                ) {
+                    if (randomGL(PROTECT)) {
+                        PEOPLE_HEALTHY[i].isHealthy = false;
+                        PEOPLE_UNHEALTHY.push(PEOPLE_HEALTHY[i]);
+                        PEOPLE_HEALTHY.splice(i, 1);
                     }
+
+                    break;
                 }
-            
+            }
         }
     }
 }
@@ -202,8 +189,6 @@ function setup() {
     }
 
     for (let i = INIT_UNHEALTHY; i < PEOPLE_AMOUNT; i++) {
-        console.log(i);
-        
         PEOPLE_HEALTHY.push(PEOPLE[i]);
     }
 }
