@@ -7,19 +7,35 @@
 
         <script src="./p5.min.js"></script>
         <script src="./script.js"></script>
+        <script src="./vue.min.js"></script>
         <script src="./dat.gui.min.js"></script>
         <script src="./control.js"></script>
 
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-            }
-        </style>
+        <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
-        <canvas id="canvas">
-            2333333
-        </canvas>
+        <div class="wrap">
+            <h1>covid-19-simulator</h1>
+            <p><a href="https://github.com/ZZY2357">周子阳</a> 编程猫深圳天悦龙庭校区</p>
+            <p>修改<a href="https://github.com/ZZY2357/covid-19-simulatora">源码</a>以调整更多配置</p>
+            <p><strong style="color: rgb(136, 0, 0);">模拟出来的结果不代表真实结果，请勿信以为真</strong></p>
+            <hr>
+            <div id="data">
+                <h2>第{{ DAY }}天</h2>
+                <div class="two-parts">
+                    <ul id="people-info">
+                        <li>总人数: {{ HEALTHY_AMOUNT + UNHEALTHY_AMOUNT }}</li>
+                        <li>健康人数: {{ HEALTHY_AMOUNT }}</li>
+                        <li>被感染人数: {{ UNHEALTHY_AMOUNT }}</li>
+                        <li>被隔离人数: {{ BREAK_AMOUNT }}</li>
+                    </ul>
+                    <ul id="other-info">
+                        <li>床位: {{ BEDS }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script src="./displayData.js"></script>
     </body>
 </html>

@@ -10,9 +10,11 @@
  * 蓝色代表被隔离人群
  */
 
+DAY = 0; // 天数
+
 const PEOPLE_AMOUNT = 1000; // 人数
 let PROTECT = 0.06; // 被感染率
-let BEDS = 500; // 病床床位
+let BEDS = 200; // 病床床位
 let PEOPLE_SPEED = 0.03; // 人群平均移动速度
 const INIT_UNHEALTHY = 220; // 初始感染者数量
 let HAPPY_HEALTHY_DAY = 1; // 康复期（秒）
@@ -20,8 +22,9 @@ let HAPPY_HEALTHY_DAY = 1; // 康复期（秒）
 const WIDTH = 800;
 const HEIGHT = 600;
 const BGCOLOR = 0x000;
+const fps = 60;
 
-let POINT_SIZE = 3; // 小圈圈的大小
+let POINT_SIZE = 5; // 小圈圈的大小
 const GREEN = '#00ff00';
 const BLUE = '#00ffff';
 const RED = '#ff0000';
@@ -187,6 +190,7 @@ function setup() {
     window.onblur = noLoop;
     window.onfocus = loop;
 
+    frameRate(fps); // 设置fps
     canvas = createCanvas(WIDTH, HEIGHT);
 
     // 初始化人群
@@ -207,6 +211,7 @@ function setup() {
 
 function draw() {
     background(BGCOLOR);
+    DAY = floor(frameCount / fps + 1);
 
     for (let i = 0; i < PEOPLE_AMOUNT; i++) {
         PEOPLE[i].render();
