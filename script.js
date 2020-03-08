@@ -11,17 +11,17 @@
  */
 
 const PEOPLE_AMOUNT = 1000; // 人数
-const PROTECT = 0.06; // 被感染率
-const BEDS = 900; // 病床床位
-const PEOPLE_SPEED = 0.03; // 人群平均移动速度
-const INIT_UNHEALTHY = 120; // 初始感染者数量
-const HAPPY_HEALTHY_DAY = 1; // 康复期（秒）
+let PROTECT = 0.06; // 被感染率
+let BEDS = 500; // 病床床位
+let PEOPLE_SPEED = 0.03; // 人群平均移动速度
+const INIT_UNHEALTHY = 220; // 初始感染者数量
+let HAPPY_HEALTHY_DAY = 1; // 康复期（秒）
 
 const WIDTH = 800;
 const HEIGHT = 600;
 const BGCOLOR = 0x000;
 
-const POINT_SIZE = 3; // 小圈圈的大小
+let POINT_SIZE = 3; // 小圈圈的大小
 const GREEN = '#00ff00';
 const BLUE = '#00ffff';
 const RED = '#ff0000';
@@ -29,7 +29,7 @@ const RED = '#ff0000';
 let PEOPLE = []; // 储存所有人
 let PEOPLE_HEALTHY = []; // 储存所有未感染者
 let PEOPLE_UNHEALTHY = []; // 储存所有感染者
-let PEOPLE_IS_BREAK = [] // 储存所有被隔离者
+let PEOPLE_IS_BREAK = []; // 储存所有被隔离者
 
 /**
  * 半径碰撞检测
@@ -93,7 +93,7 @@ class People {
     // 给定一个基点，根据基点产生随机差值
     vx = randomGaussian(0, PEOPLE_SPEED);
     vy = randomGaussian(0, PEOPLE_SPEED);
-    
+
     isBreak = false; // 是否被隔离
     inBreakTime = null; // 入院日期（帧数）
 
@@ -143,7 +143,10 @@ class People {
 
     doesBreakTimeOut() {
         if (this.isBreak) {
-            if (frameCount > this.inBreakTime + frameRate() * HAPPY_HEALTHY_DAY) {
+            if (
+                frameCount >
+                this.inBreakTime + frameRate() * HAPPY_HEALTHY_DAY
+            ) {
                 this.isHealthy = true;
                 this.isBreak = false;
                 this.inBreakTime = null;
