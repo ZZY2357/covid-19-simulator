@@ -11,20 +11,20 @@
  *      圆形代表不戴口罩的人
  */
 
-const PEOPLE_AMOUNT = 10; // 人数
+const PEOPLE_AMOUNT = 100; // 人数
 const HAS_MASK = 0.8; // 戴口罩人数占总人数的百分比
 const NO_MASK = 0.2; // 不戴口罩人数占总人数的百分比
 const HAS_MASK_PROTECT = 0.4; // 带口罩下的被感染率
 const NO_MASK_PROTECT = 0.6; // 不带口罩下的被感染率
 const BEDS = 100; // 病床床位
-const PEOPLE_SPEED = 3; // 人群最大移动速度
+const PEOPLE_SPEED = 0.3; // 人群最大移动速度
 const INIT_UNHEALTHY = 2; // 初始感染者数量
 
 const WIDTH = 600;
 const HEIGHT = 400;
 const BGCOLOR = 0x000;
 
-const POINT_SIZE = 100; // 小圈圈的大小
+const POINT_SIZE = 10; // 小圈圈的大小
 const GREEN = '#00ff00';
 const YELLOW = '#00ffff';
 const RED = '#ff0000';
@@ -190,16 +190,20 @@ function setup() {
 
     canvas = createCanvas(WIDTH, HEIGHT);
 
+    // 初始化人群
     for (let i = 0; i < PEOPLE_AMOUNT; i++) {
         PEOPLE.push(new People(true, true));
     }
 
+    // 初始化感染人数人
     for (let i = 0; i < INIT_UNHEALTHY; i++) {
         PEOPLE[i].isHealthy = false;
         PEOPLE_UNHEALTHY.push(PEOPLE[i]);
     }
 
-    for (let i = INIT_UNHEALTHY; i < PEOPLE_AMOUNT + 1; i++) {
+    for (let i = INIT_UNHEALTHY; i < PEOPLE_AMOUNT; i++) {
+        console.log(i);
+        
         PEOPLE_HEALTHY.push(PEOPLE[i]);
     }
 }
