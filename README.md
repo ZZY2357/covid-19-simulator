@@ -6,6 +6,8 @@
 
 作为编程猫参赛作品
 
+[码云(Gitee)仓库地址](https://gitee.com/zzy2357/covid-19-simulator/)
+
 ## 在线预览
 
 - [Github Pages](https://zzy2357.github.io/covid-19-simulator/)
