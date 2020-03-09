@@ -74,7 +74,21 @@ anywhere 8888 # 端口(8888)可自选
 - <font color=#ff0000>⬤</font> 红点: 被感染者
 - <font color=#0000ff>⬤ </font> 蓝点: 正在被隔离的人
 
-可在右上方修改数据
+> 可在右上方修改数据
+
+### 可修改变量：
+
+| 变量名              |        说明        |
+| :------------------ | :----------------: |
+| `PEOPLE_AMOUNT`     |        人数        |
+| `PROTECT`           | 被感染率（患病率） |
+| `BEDS`              |      病床床位      |
+| `PEOPLE_SPEED`      |  人群平均移动速度  |
+| `INIT_UNHEALTHY`    |  初始被感染者数量  |
+| `HAPPY_HEALTHY_DAY` |       康复期       |
+| `WIDTH`             |        宽度        |
+| `HEIGHT`            |        高度        |
+| `POINT_SIZE`        |     圈圈的大小     |
 
 ## 声明
 
