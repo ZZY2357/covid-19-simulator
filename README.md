@@ -70,9 +70,9 @@ anywhere 8888 # 端口(8888)可自选
 
 ## 说明
 
-- <font color="#00ff00">⬤</font> 绿点: 健康的人
-- <font color="#ff0000">⬤</font> 红点: 被感染者
-- <font color="#0000ff">⬤ </font> 蓝点: 正在被隔离的人
+- <font color=#00ff00>⬤</font> 绿点: 健康的人
+- <font color=#ff0000>⬤</font> 红点: 被感染者
+- <font color=#0000ff>⬤ </font> 蓝点: 正在被隔离的人
 
 可在右上方修改数据
 
