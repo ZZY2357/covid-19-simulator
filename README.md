@@ -82,4 +82,4 @@ anywhere 8888 # 端口(8888)可自选
 
 ## 协议
 
-[MIT](https://www.mit-license.org/)
+[MIT](https://github.com/ZZY2357/covid-19-simulator/blob/master/LICENSE/)
