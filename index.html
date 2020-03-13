@@ -4,23 +4,37 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>COVID-19</title>
-
-        <script src="./p5.min.js"></script>
-        <script src="./script.js"></script>
-        <script src="./vue.min.js"></script>
-        <script src="./dat.gui.min.js"></script>
-        <script src="./control.js"></script>
-
+        
+        <link rel="stylesheet" href="./lib/chartist.min.css">
         <link rel="stylesheet" href="./style.css" />
+
+        <script src="./lib/p5.min.js"></script>
+        <script src="./lib/vue.min.js"></script>
+        <script src="./lib/dat.gui.min.js"></script>
+        <script src="./lib/chartist.min.js"></script>
+        <script src="./script.js"></script>
+        <script src="./control.js"></script>
+        
     </head>
     <body>
         <h1>covid-19-simulator</h1>
         <div class="wrap">
-            <p><a href="https://github.com/ZZY2357">周子阳</a> 编程猫深圳天悦龙庭校区</p>
+            <p>
+                <a href="https://github.com/ZZY2357">周子阳</a>
+                编程猫深圳天悦龙庭校区
+            </p>
             <p>以此作品参加编程猫《抗击疫情 有你有我》活动比赛</p>
-            <p>修改<a href="https://github.com/ZZY2357/covid-19-simulatora">源码</a>以调整更多配置</p>
-            <p><strong style="color: rgb(136, 0, 0);">模拟出来的结果不代表真实结果，请勿信以为真</strong></p>
-            <hr>
+            <p>
+                修改<a href="https://github.com/ZZY2357/covid-19-simulatora"
+                    >源码</a
+                >以调整更多配置
+            </p>
+            <p>
+                <strong style="color: rgb(136, 0, 0);"
+                >模拟出来的结果不代表真实结果，请勿信以为真</strong
+                >
+            </p>
+            <hr />
             <div id="data">
                 <h2>第{{ DAY }}天</h2>
                 <div class="two-parts">
@@ -38,8 +52,12 @@
             <span><span style="color: #00ff00">⬤</span> 健康的人</span>
             <span><span style="color: #ff0000">⬤</span> 被感染者</span>
             <span><span style="color: #00ffff">⬤</span> 被隔离者</span>
-        </div>
 
+            <div class="ct-shart" width="300" id="chart"></div>
+            
+        </div>
+        
         <script src="./displayData.js"></script>
+        <script src="./chart.js"></script>
     </body>
 </html>

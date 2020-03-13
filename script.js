@@ -14,7 +14,7 @@ DAY = 0; // 天数
 
 const PEOPLE_AMOUNT = 1000; // 人数
 let PROTECT = 0.06; // 被感染率
-let BEDS = 200; // 病床床位
+let BEDS = 230; // 病床床位
 let PEOPLE_SPEED = 0.03; // 人群平均移动速度
 const INIT_UNHEALTHY = 220; // 初始感染者数量
 let HAPPY_HEALTHY_DAY = 1; // 康复期（秒）
@@ -212,6 +212,7 @@ function setup() {
 function draw() {
     background(BGCOLOR);
     DAY = floor(frameCount / fps + 1);
+    
 
     for (let i = 0; i < PEOPLE_AMOUNT; i++) {
         PEOPLE[i].render();
@@ -228,4 +229,8 @@ function draw() {
             PEOPLE_IS_BREAK.push(PEOPLE_UNHEALTHY[i]);
         }
     }
+
+    _data.labels.push('x');
+    _data.series[0].push(PEOPLE_HEALTHY.length);
+    _chart.update();
 }

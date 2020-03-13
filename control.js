@@ -21,7 +21,6 @@ let control = {
         }
     },
     重新开始: function () {
-        location.hash = escape(JSON.stringify(control));
         location.reload();
     }
 };
