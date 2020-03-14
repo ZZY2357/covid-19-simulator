@@ -230,7 +230,5 @@ function draw() {
         }
     }
 
-    _data.labels.push('x');
-    _data.series[0].push(PEOPLE_HEALTHY.length);
-    _chart.update();
+    
 }
