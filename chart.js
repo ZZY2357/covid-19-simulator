@@ -9,7 +9,7 @@ _data = {
 
 _option = {
     axisX: {
-        showLabel: false
+        showLabel: true
     }
 };
 
@@ -21,9 +21,3 @@ setInterval(() => {
         _data.series[0].splice(0, 80);
     }
 }, fps);
-
-setInterval(() => {
-    _data.labels.push('x');
-    _data.series[0].push(PEOPLE_HEALTHY.length);
-    _chart.update();
-}, 1000);

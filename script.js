@@ -11,6 +11,7 @@
  */
 
 DAY = 0; // 天数
+_DAY_TEMP = DAY;
 
 const PEOPLE_AMOUNT = 1000; // 人数
 let PROTECT = 0.06; // 被感染率
@@ -212,7 +213,15 @@ function setup() {
 function draw() {
     background(BGCOLOR);
     DAY = floor(frameCount / fps + 1);
-    
+
+    if (_DAY_TEMP < DAY) {
+        _data.labels.push(`第${DAY}天`);
+        _data.series[0].push(PEOPLE_UNHEALTHY.length);
+        _chart.update();
+        _DAY_TEMP = DAY;
+        console.log(PEOPLE_UNHEALTHY.length);
+        
+    }
 
     for (let i = 0; i < PEOPLE_AMOUNT; i++) {
         PEOPLE[i].render();
@@ -229,6 +238,4 @@ function draw() {
             PEOPLE_IS_BREAK.push(PEOPLE_UNHEALTHY[i]);
         }
     }
-
-    
 }
