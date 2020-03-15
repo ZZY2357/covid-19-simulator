@@ -169,8 +169,8 @@ class People {
                         this.y,
                         PEOPLE_HEALTHY[i].x,
                         PEOPLE_HEALTHY[i].y,
-                        POINT_SIZE / 2,
-                        POINT_SIZE / 2
+                        POINT_SIZE / 4,
+                        POINT_SIZE / 4
                     )
                 ) {
                     if (randomGL(PROTECT)) {
