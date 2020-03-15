@@ -21,7 +21,7 @@ let control = {
         }
     },
     重新开始: function () {
-        location.reload();
+        history.back();
     }
 };
 let gui;
