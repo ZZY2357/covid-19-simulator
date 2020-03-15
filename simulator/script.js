@@ -13,12 +13,31 @@
 DAY = 0; // 天数
 _DAY_TEMP = DAY;
 
-const PEOPLE_AMOUNT = 1000; // 人数
+function getQueryIntInfor(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (pair[0] == variable) {
+            return parseInt(pair[1]);
+        }
+    }
+    return false;
+}
+
+function setValFromTwoInt(a, b) {
+    if (getQueryIntInfor(a) != null && getQueryIntInfor(a) != undefined) {
+        return getQueryIntInfor(a);
+    }
+    return b;
+}
+
+const PEOPLE_AMOUNT = setValFromTwoInt('people', 1000); // 人数
 let PROTECT = 0.06; // 被感染率
-let BEDS = 230; // 病床床位
+let BEDS = setValFromTwoInt('beds', 230); // 病床床位
 let PEOPLE_SPEED = 0.03; // 人群平均移动速度
-const INIT_UNHEALTHY = 220; // 初始感染者数量
-let HAPPY_HEALTHY_DAY = 1; // 康复期（秒）
+const INIT_UNHEALTHY = setValFromTwoInt('people_unhealthy', 220); // 初始感染者数量
+let HAPPY_HEALTHY_DAY = 1; // 康复期
 
 const WIDTH = 800;
 const HEIGHT = 600;
@@ -87,7 +106,7 @@ function randomGL(gl) {
 }
 
 /**
- * @param bool 是否健康，如果不健康，则hasMask参数为null
+ * @param bool 是否健康
  * @param bool 如果健康，是否戴口罩
  */
 class People {
