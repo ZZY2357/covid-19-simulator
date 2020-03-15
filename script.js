@@ -214,13 +214,17 @@ function draw() {
     background(BGCOLOR);
     DAY = floor(frameCount / fps + 1);
 
+    let pum = 0; // 不健康人数
     if (_DAY_TEMP < DAY) {
         _data.labels.push(`第${DAY}天`);
-        _data.series[0].push(PEOPLE_UNHEALTHY.length);
+        PEOPLE.forEach((j, i) => {
+            if (!j.isHealthy) {
+                pum++;
+            }
+        });
+        _data.series[0].push(pum);
         _chart.update();
         _DAY_TEMP = DAY;
-        console.log(PEOPLE_UNHEALTHY.length);
-        
     }
 
     for (let i = 0; i < PEOPLE_AMOUNT; i++) {
