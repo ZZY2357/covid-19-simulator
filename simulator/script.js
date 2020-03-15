@@ -36,7 +36,7 @@ const PEOPLE_AMOUNT = setValFromTwoInt('people', 1000); // 人数
 let PROTECT = 0.06; // 被感染率
 let BEDS = setValFromTwoInt('beds', 230); // 病床床位
 let PEOPLE_SPEED = 0.03; // 人群平均移动速度
-const INIT_UNHEALTHY = setValFromTwoInt('people_unhealthy', 220); // 初始感染者数量
+const INIT_UNHEALTHY = setValFromTwoInt('unhealthy_people', 220); // 初始感染者数量
 let HAPPY_HEALTHY_DAY = 1; // 康复期
 
 const WIDTH = 800;
