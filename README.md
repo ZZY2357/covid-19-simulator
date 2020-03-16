@@ -2,6 +2,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/ZZY2357/covid-19-simulator?style=for-the-badge)](https://github.com/ZZY2357/covid-19-simulator/stargazers) [![GitHub forks](https://img.shields.io/github/forks/ZZY2357/covid-19-simulator?style=for-the-badge)](https://github.com/ZZY2357/covid-19-simulator/network) [![GitHub license](https://img.shields.io/github/license/ZZY2357/covid-19-simulator?style=for-the-badge)](https://github.com/ZZY2357/covid-19-simulator/blob/master/LICENSE)
 
+深圳市宝安区海旺学校 周子阳  
 参照bilibili.com上的[仿真程序](https://www.bilibili.com/video/av86478875?from=search&seid=5367857792106734282)做出来的Web版的模拟程序  
 
 [码云(Gitee)仓库地址](https://gitee.com/zzy2357/covid-19-simulator/)
