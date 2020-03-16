@@ -21,7 +21,7 @@ let control = {
         }
     },
     重新开始: function () {
-        history.back();
+        location.assign(unescape(getQueryIntInfor('home_url')));
     }
 };
 let gui;

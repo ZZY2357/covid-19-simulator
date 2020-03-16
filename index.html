@@ -12,7 +12,15 @@
     <body>
         <div class="container wrap">
             <h1 class="title">COVID-19 Simulator</h1>
-            <form action="./simulator/" method="get">
+            <h2 class="subtitle">作者: 周子阳</h2>
+            <form action="./simulator/" method="get" id="getInfor">
+                <script>
+                    let temp = document.createElement('input');
+                    temp.name = 'home_url';
+                    temp.value = location.href;
+                    temp.style.display = 'none';
+                    document.querySelector('#getInfor').appendChild(temp);
+                </script>
                 <label for="people">初始人群数量: </label>
                 <input
                     type="number"
@@ -49,7 +57,10 @@
                     开始
                 </button>
             </form>
-            <div class="is-warning notification" style="margin-top: 10px; padding: 8px;">
+            <div
+                class="is-warning notification"
+                style="margin-top: 10px; padding: 8px;"
+            >
                 <p>如果发生错误，请确保：</p>
                 <ul>
                     <li>初始人群数量 &gt; 初始感染者数量</li>

@@ -19,15 +19,16 @@ function getQueryIntInfor(variable) {
     for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split('=');
         if (pair[0] == variable) {
-            return parseInt(pair[1]);
+            return pair[1];
         }
     }
     return false;
 }
 
 function setValFromTwoInt(a, b) {
-    if (getQueryIntInfor(a) != null && getQueryIntInfor(a) != undefined) {
-        return getQueryIntInfor(a);
+    let s = parseInt(getQueryIntInfor(a));
+    if (s != null && s != undefined && s != NaN) {
+        return s;
     }
     return b;
 }
