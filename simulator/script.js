@@ -1,7 +1,6 @@
 /*
  * 病毒传播模拟程序
  * 模拟出来的结果并不代表真实结果
- * 作者: 周子阳 编程猫深圳市天悦龙庭校区
  */
 
 /*
@@ -42,13 +41,13 @@ let HAPPY_HEALTHY_DAY = 1; // 康复期
 
 const WIDTH = 800;
 const HEIGHT = 600;
-const BGCOLOR = 0x000;
+const BGCOLOR = '#1a2a3a';
 const fps = 60;
 
 let POINT_SIZE = 5; // 小圈圈的大小
-const GREEN = '#00ff00';
-const BLUE = '#00ffff';
-const RED = '#ff0000';
+const GREEN = '#2ecc71';
+const BLUE = '#3498db';
+const RED = '#e74c3c';
 
 let PEOPLE = []; // 储存所有人
 let PEOPLE_HEALTHY = []; // 储存所有未感染者
@@ -224,7 +223,7 @@ function setup() {
         PEOPLE[i].isHealthy = false;
         PEOPLE_UNHEALTHY.push(PEOPLE[i]);
     }
-
+    
     for (let i = INIT_UNHEALTHY; i < PEOPLE_AMOUNT; i++) {
         PEOPLE_HEALTHY.push(PEOPLE[i]);
     }
