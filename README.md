@@ -31,6 +31,10 @@
 | `HEIGHT`            |        高度        |
 | `POINT_SIZE`        |     圈圈的大小     |
 
+## 贡献
+
+只需要提交 issues 或者 Pull requests。你可以先看看 [TODO](TODO.md)。
+
 ## 声明
 
 - 模拟出来的结果不代表真实结果，请勿信以为真
