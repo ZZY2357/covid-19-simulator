@@ -7,17 +7,19 @@
 
         <link rel="stylesheet" href="../lib/chartist.min.css" />
         <link rel="stylesheet" href="./style.css" />
-
+        
         <script src="../lib/p5.min.js"></script>
         <script src="../lib/vue.min.js"></script>
         <script src="../lib/dat.gui.min.js"></script>
         <script src="../lib/chartist.min.js"></script>
         <script src="./script.js"></script>
         <script src="./control.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        
     </head>
     <body>
         <h1>covid-19-simulator</h1>
-        <div class="wrap">
+        <div class="wrap container">
 
             <p>
                 <strong style="color: #c0392b;"
@@ -26,7 +28,7 @@
             </p>
             <hr />
             <div id="data">
-                <h2>第{{ DAY }}天</h2>
+                <h2>第 {{ DAY }} 天</h2>
                 <div class="two-parts">
                     <ul id="people-info">
                         <li>总人数: {{ HEALTHY_AMOUNT + UNHEALTHY_AMOUNT }}</li>

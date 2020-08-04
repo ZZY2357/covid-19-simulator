@@ -41,3 +41,13 @@ canvas {
 .two-parts ul {
     min-width: 300px;
 }
+
+.ct-label {
+    color: #fff;
+}
+
+.screenshot img {
+    width: min(400px, 100vw);
+    height: min(300px, 100vh);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, .5);
+}
