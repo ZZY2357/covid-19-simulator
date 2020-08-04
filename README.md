@@ -2,69 +2,12 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/ZZY2357/covid-19-simulator?style=for-the-badge)](https://github.com/ZZY2357/covid-19-simulator/stargazers) [![GitHub forks](https://img.shields.io/github/forks/ZZY2357/covid-19-simulator?style=for-the-badge)](https://github.com/ZZY2357/covid-19-simulator/network) [![GitHub license](https://img.shields.io/github/license/ZZY2357/covid-19-simulator?style=for-the-badge)](https://github.com/ZZY2357/covid-19-simulator/blob/master/LICENSE)
 
-参照bilibili.com上的[仿真程序](https://www.bilibili.com/video/av86478875?from=search&seid=5367857792106734282)做出来的Web版的模拟程序  
-
-[码云(Gitee)仓库地址](https://gitee.com/zzy2357/covid-19-simulator/)
+新型冠状病毒模拟程序
 
 ## 在线预览
 
 - [Github Pages](https://zzy2357.github.io/covid-19-simulator/)
-
-- [Gitee Pages](http://zzy2357.gitee.io/covid-19-simulator/)
-
-  > Github Pages在国内访问较慢，可以使用Gitee Pages
-
-## 本地运行
-
-本地运行可以通过调整源代码来调整配置
-
-### 建立本地服务器（大佬跳过）
-
-本代码需要通过本地服务器运行
-
-   #### 方法一：使用Python
-
-Python3:
-
-   ```shell
-   python -m http.server
-   ```
-
-Python2:
-
-   ```shell
-   python -m SimpleHTTPServer
-   ```
-
-出现提示:
-
-   ```shell
-   Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-   ```
-
-打开浏览器访问 http://0.0.0.0:8000/ 就好了
-
-#### 方法二：使用nodejs(npm)
-
-首先，安装`anywhere`:
-
-```shell
-npm install -g anywhere
-```
-
-然后:
-
-```bash
-anywhere 8888 # 端口(8888)可自选
-```
-
-这会自动打开浏览器
-
-或打开浏览器访问 http://localhost:8888 就好了
-
-### 修改数据
-
-打开修改`script.js`文件，按照注释修改保存刷新浏览器即可
+- [Vercel App](https://covid-19-simulator.zzy2357.vercel.app/)
 
 ## 说明
 
