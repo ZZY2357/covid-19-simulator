@@ -112,7 +112,7 @@ function randomGL(gl) {
 class People {
     x = random(0, WIDTH);
     y = random(0, HEIGHT);
-    // 高能：高斯随机数
+    // 高斯随机数
     // 给定一个基点，根据基点产生随机差值
     vx = randomGaussian(0, PEOPLE_SPEED);
     vy = randomGaussian(0, PEOPLE_SPEED);

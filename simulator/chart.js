@@ -16,7 +16,7 @@ _option = {
 _chart = new Chartist.Line('#chart', _data, _option);
 
 setInterval(() => {
-    if (_data.series[0].length >= 80) {
+    if (_data.series[0].length >= 40) {
         _data.labels.splice(0, 80);
         _data.series[0].splice(0, 80);
     }
