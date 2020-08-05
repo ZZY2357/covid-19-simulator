@@ -18,7 +18,7 @@
     </head>
     <body>
         <h1>covid-19-simulator</h1>
-        <div class="wrap container">
+        <div id="app" class="wrap container">
             <p>
                 <strong style="color: #c0392b;"
                     >模拟出来的结果不代表真实结果，请勿信以为真</strong
@@ -45,14 +45,14 @@
 
             <p>病情折线图</p>
             <div class="ct-shart" style="width: 800px;" id="chart"></div>
-        </div>
 
-        <a
-            class="share"
-            title="分享到邮箱"
-            href="mailto:?subject=给你分享一个好玩的程序！&body=嘿！来看看这个：https://zzy2357.github.io/covid-19-simulator"
-            >📫分享</a
-        >
+            <a
+                class="share"
+                title="分享到邮箱"
+                v-bind:href="'mailto:?subject=给你分享一个好玩的程序！&body=嘿！来看看这个：' + location.href"
+                >📫分享</a
+            >
+        </div>
 
         <script src="./displayData.js"></script>
         <script src="./chart.js"></script>

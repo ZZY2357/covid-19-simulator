@@ -1,7 +1,7 @@
 let app;
 
 app = new Vue({
-    el: '#data',
+    el: '#app',
     data: {
         DAY: 0,
         PEOPLE: PEOPLE_AMOUNT,
