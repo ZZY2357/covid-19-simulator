@@ -153,7 +153,7 @@ class People {
 
     move() {
         if (this.x < 0 || this.x > WIDTH) {
-            this.vx *= -2;
+            this.vx *= -1;
         }
         if (this.y < 0 || this.y > HEIGHT) {
             this.vy *= -1;
