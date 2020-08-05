@@ -7,7 +7,7 @@
 
         <link rel="stylesheet" href="../lib/chartist.min.css" />
         <link rel="stylesheet" href="./style.css" />
-        
+
         <script src="../lib/p5.min.js"></script>
         <script src="../lib/vue.min.js"></script>
         <script src="../lib/dat.gui.min.js"></script>
@@ -15,12 +15,10 @@
         <script src="./script.js"></script>
         <script src="./control.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        
     </head>
     <body>
         <h1>covid-19-simulator</h1>
         <div class="wrap container">
-
             <p>
                 <strong style="color: #c0392b;"
                     >模拟出来的结果不代表真实结果，请勿信以为真</strong
@@ -41,13 +39,20 @@
                     </ul>
                 </div>
             </div>
-            <span><span style="color: #00ff00">⬤</span> 健康的人</span>
-            <span><span style="color: #ff0000">⬤</span> 被感染者</span>
-            <span><span style="color: #00ffff">⬤</span> 被隔离者</span>
+            <span><span style="color: #00ff00;">⬤</span> 健康的人</span>
+            <span><span style="color: #ff0000;">⬤</span> 被感染者</span>
+            <span><span style="color: #00ffff;">⬤</span> 被隔离者</span>
 
             <p>病情折线图</p>
             <div class="ct-shart" style="width: 800px;" id="chart"></div>
         </div>
+
+        <a
+            class="share"
+            title="分享到邮箱"
+            href="mailto:?subject=给你分享一个好玩的程序！&body=嘿！来看看这个：https://zzy2357.github.io/covid-19-simulator"
+            >📫分享</a
+        >
 
         <script src="./displayData.js"></script>
         <script src="./chart.js"></script>

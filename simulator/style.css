@@ -13,7 +13,8 @@ body {
 }
 
 .wrap {
-    padding: 8px;
+    padding: 32px;
+    margin: 0 auto;
 }
 
 h1 {
@@ -34,6 +35,10 @@ canvas {
     box-shadow: 8px 8px 0 rgba(52, 81, 92, 0.8);
 }
 
+li {
+    list-style: none;
+}
+
 .two-parts {
     display: flex;
 }
@@ -49,5 +54,25 @@ canvas {
 .screenshot img {
     width: min(400px, 100vw);
     height: min(300px, 100vh);
-    box-shadow: 0 2px 16px rgba(0, 0, 0, .5);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
+.share {
+    position: fixed;
+    bottom: 0;
+    left: 10px;
+    background-color: #e4e65c;
+    padding: 10px 20px 5px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-decoration: none;
+    color: #122e4a;
+    font-size: 22px;
+    box-shadow: 0 2px 20px 11px rgba(0, 0, 0, 50%);
+
+    transition: filter 0.5s;
+}
+
+.share:hover {
+    filter: brightness(0.6);
 }
