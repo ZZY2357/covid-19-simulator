@@ -1,6 +1,6 @@
 # covid-19-simulator
 
-[![GitHub stars](https://img.shields.io/github/stars/ZZY2357/covid-19-simulator?style=for-the-badge)](https://github.com/ZZY2357/covid-19-simulator/stargazers) [![GitHub forks](https://img.shields.io/github/forks/ZZY2357/covid-19-simulator?style=for-the-badge)](https://github.com/ZZY2357/covid-19-simulator/network) [![GitHub license](https://img.shields.io/github/license/ZZY2357/covid-19-simulator?style=for-the-badge)](https://github.com/ZZY2357/covid-19-simulator/blob/master/LICENSE)
+![covid-19-simulator](https://socialify.git.ci/zzy2357/covid-19-simulator/image?font=Bitter&forks=1&issues=1&language=1&owner=1&pattern=Charlie%20Brown&stargazers=1&theme=Light)
 
 新型冠状病毒模拟程序
 
